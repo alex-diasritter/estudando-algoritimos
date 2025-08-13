@@ -1,4 +1,4 @@
-package org.alex.buscaBinaria;
+package org.leetcode.binarysearch;
 
 public class BinarySearch {
     public static void main(String[] args) {
