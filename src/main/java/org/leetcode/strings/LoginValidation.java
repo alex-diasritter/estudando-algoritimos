@@ -1,5 +1,7 @@
 package org.leetcode.strings;
 
+import java.util.Scanner;
+
 public class LoginValidation {
 
     private static final String SPECIALS = "!@#$%^&*()-_=+[]{};:,.<>?/\\|`~";
@@ -66,17 +68,25 @@ public class LoginValidation {
     }
 
     public static boolean passwordDiferentFromName (String username, String password) {
-        username.toLowerCase();
-        if (password.contains(username)) {
+        var lowerUsername = username.toLowerCase();
+        var lowerPassword = password.toLowerCase();
+        if (lowerPassword.contains(lowerUsername)) {
+            System.out.println("A senha não pode conter o username.");
             return false;
         }
         return true;
     }
 
     public static void main(String[] args) {
-        String username = "Joao";
-        String senha = "Strong#Senha2025";
+        Scanner input = new Scanner(System.in);
 
-        System.out.println(isValid(senha, username) ? "✅ Senha válida" : "❌ Senha inválida");
+        System.out.print("Digite um username: ");
+        String username = input.next();
+
+        System.out.print("\nDigite uma senha: ");
+        String senha = input.next();
+
+        System.out.println();
+        System.out.println(isValid(senha, username) ? "Login válido" : "Username ou Senha inválido");
     }
 }
