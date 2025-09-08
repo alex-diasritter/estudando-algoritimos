@@ -20,19 +20,22 @@ public class Tentativa1 {
 
         Map<Integer, Integer> valores = new HashMap<>();
 
-        for (int index = 0; index < list.size(); index++) {
+        for (int indexAtual = 0; indexAtual < list.size(); indexAtual++) {
 
-            int complemento = target - list.get(index);
+            // complemento é apenas uma variável temporária
+            int complemento = target - list.get(indexAtual);
 
+            // se o complemento estiver no mapa, sucesso, encontramos os valores que somados dão target(13 no caso)
+            // porque se o valor target - list.get(indexAtual) = a um complemento que já foi adicionado no mapa significa que encontramos os dois valores que somados dão target.
             if (valores.containsKey(complemento)) {
 
-                System.out.println("Retornando os índices: [" + valores.get(complemento)+ ", " + index + "]");
-                System.out.println("Valores: " + complemento + " (do indice: " + valores.get(complemento) + ") + " + list.get(index) + " (do indice: " + index + ") = " + target);
+                System.out.println("Retornando os índices: [" + valores.get(complemento)+ ", " + indexAtual + "]");
+                System.out.println("Valores: " + complemento + " (do indice: " + valores.get(complemento) + ") + " + list.get(indexAtual) + " (do indice: " + indexAtual + ") = " + target);
 
-                return new ArrayList<>(List.of(valores.get(complemento), index));
+                return new ArrayList<>(List.of(valores.get(complemento), indexAtual));
             }
 
-            valores.put(list.get(index), index);
+            valores.put(list.get(indexAtual), indexAtual);
         }
         throw new IllegalArgumentException();
     }
